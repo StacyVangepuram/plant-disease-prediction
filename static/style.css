@@ -1,0 +1,241 @@
+/* Background & Global */
+body {
+  background-image: url("{{ url_for('static', filename='bgleaf.png') }}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #02f30a, #034d07);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+/* Main Content */
+main, footer {
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Upload Form */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  width: 90%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.upload-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 100%;
+  text-align: center;
+}
+
+/* File Upload */
+.file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+.file-upload input[type="file"] {
+  opacity: 0;
+  width: 100%;
+  height: 2.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.file-upload-label {
+  display: block;
+  background-color: #e9f7e9;
+  color: #333;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  border: 2px solid #04bd0a;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background-color: #d6f5d6;
+}
+
+#file-name {
+  margin-top: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Button */
+button[type="submit"] {
+  background: linear-gradient(45deg, #04bd0a, #028008);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(45deg, #028008, #04bd0a);
+  transform: scale(1.03);
+}
+
+/* Results */
+.results-section {
+  margin: 2rem auto;
+  max-width: 700px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: fadeIn 1.2s ease-in-out;
+  color: #222;
+}
+
+.results-section h2 {
+  color: #0a4d0a;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.result-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInImg 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.prediction {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #222;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.prediction p {
+  margin: 0.5rem 0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.tabs button {
+  background-color: #04bd0a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tabs button:hover {
+  background-color: #028008;
+  transform: scale(1.05);
+}
+
+/* Tab Content */
+.tab-content {
+  margin-top: 1rem;
+}
+
+.tab {
+  display: none;
+  text-align: left;
+  background-color: rgba(255,255,255,0.95);
+  padding: 1rem;
+  border-radius: 10px;
+  color: #222;
+  animation: slideIn 0.5s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInImg {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .upload-box,
+  .results-section {
+    padding: 1rem;
+  }
+
+  button[type="submit"],
+  .tabs button {
+    width: 100%;
+  }
+
+  .tab-content {
+    padding: 0.5rem;
+  }
+}
