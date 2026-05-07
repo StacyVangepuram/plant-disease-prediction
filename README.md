@@ -63,7 +63,7 @@ http://127.0.0.1:5000
 5. **Rendering:** Flask renders the results dynamically into the HTML template.
 
 ## Dataset 📊
-The model was trained on the augmented New Plant Diseases Dataset, consisting of thousands of categorized images of healthy and diseased plant leaves.
+The model was trained on the augmented Kaggle New Plant Diseases Dataset, consisting of approximately 87,000 images of diseased and healthy plants across 38 classes.
 
 ---
 *Created as an AI-powered tool for smarter agriculture and gardening.*
