@@ -1,8 +1,8 @@
-# Plant Disease Prediction System 🌿
+# Plant Disease Prediction System 
 
 A web-based application that helps identify plant diseases from images of their leaves. The system uses a Deep Learning model to classify diseases across 38 different categories and provides detailed information including symptoms, treatment, prevention, and active seasons.
 
-## Features ✨
+## Features 
 * **Image Upload:** Simple web interface to upload pictures of plant leaves.
 * **Accurate Predictions:** Powered by a PyTorch `DenseNet-121` model achieving **~99.8% validation accuracy**.
 * **Comprehensive Database:** Instant access to a localized database providing:
@@ -12,17 +12,17 @@ A web-based application that helps identify plant diseases from images of their 
   * Peak/Active Seasons
 * **Confidence Score:** Displays how certain the AI is about its prediction.
 
-## Tech Stack 🛠️
+## Tech Stack 
 * **Web Framework:** Flask
 * **Deep Learning Framework:** PyTorch, Torchvision, TIMM (PyTorch Image Models)
 * **Image Processing:** Pillow (PIL)
 * **Frontend:** HTML, CSS
 
-## Supported Plants and Diseases 🍎🥔🍅
+## Supported Plants and Diseases 
 The model is trained to recognize 38 classes, covering healthy leaves and common diseases for:
 * Apple, Blueberry, Cherry, Corn (Maize), Grape, Orange, Peach, Bell Pepper, Potato, Raspberry, Soybean, Squash, Strawberry, and Tomato.
 
-## Installation & Setup 🚀
+## Installation & Setup 
 
 ### 1. Prerequisites
 Ensure you have Python 3.8+ installed. You will need the following core libraries:
@@ -55,14 +55,14 @@ Once the server is running, open your web browser and navigate to:
 http://127.0.0.1:5000
 ```
 
-## How It Works ⚙️
+## How It Works 
 1. **Upload:** User uploads an image via the web UI.
 2. **Preprocessing:** The image is resized to 224x224 and normalized.
 3. **Inference:** `utils.py` passes the image tensor to the DenseNet-121 model.
 4. **Information Retrieval:** The predicted class name is used as a key to look up disease specifics in the `plant_disease_database` dictionary.
 5. **Rendering:** Flask renders the results dynamically into the HTML template.
 
-## Dataset 📊
+## Dataset 
 The model was trained on the augmented Kaggle New Plant Diseases Dataset, consisting of approximately 87,000 images of diseased and healthy plants across 38 classes.
 
 ---
